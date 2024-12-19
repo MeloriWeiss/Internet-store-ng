@@ -1,0 +1,28 @@
+<div class="carousel-header">
+  <div class="carousel-title">
+    {{ title }}
+  </div>
+  <div class="carousel-arrows">
+    <a class="move-backward no-select" (click)="owlCarousel.prev()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M10.5561 15C10.4013 15 10.2465 14.9435 10.1243 14.8224L4.8127 9.55746C3.94915 8.70151 3.94915 7.29647 4.8127 6.44052L10.1243 1.17563C10.3606 0.941456 10.7516 0.941456 10.9879 1.17563C11.2241 1.40981 11.2241 1.7974 10.9879 2.03158L5.67624 7.29647C5.2852 7.68407 5.2852 8.31392 5.67624 8.70151L10.9879 13.9664C11.2241 14.2006 11.2241 14.5882 10.9879 14.8224C10.8657 14.9354 10.7109 15 10.5561 15Z"
+          fill="#202B21"/>
+      </svg>
+    </a>
+    <a class="move-forward no-select" (click)="owlCarousel.next()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M5.44392 1C5.59871 1 5.75349 1.05652 5.87569 1.17765L11.1873 6.44254C12.0508 7.29849 12.0508 8.70353 11.1873 9.55948L5.87569 14.8244C5.63944 15.0585 5.2484 15.0585 5.01215 14.8244C4.7759 14.5902 4.7759 14.2026 5.01215 13.9684L10.3238 8.70353C10.7148 8.31593 10.7148 7.68608 10.3238 7.29849L5.01215 2.0336C4.7759 1.79942 4.7759 1.41182 5.01215 1.17765C5.13435 1.0646 5.28914 1 5.44392 1Z"
+          fill="#202B21"/>
+      </svg>
+    </a>
+  </div>
+</div>
+<div class="carousel-items">
+  <owl-carousel-o [options]="customOptions" #owlCarousel>
+    <ng-template carouselSlide *ngFor="let product of products">
+      <product-card [product]="product" [isLight]="isLight"></product-card>
+    </ng-template>
+  </owl-carousel-o>
+</div>

@@ -1,0 +1,124 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.detail {
+  padding-top: 110px;
+  padding-bottom: 110px;
+
+  .container {
+    .detail-title {
+      @include head-lora-36;
+    }
+
+    .detail-product {
+      margin-top: 30px;
+      margin-bottom: 120px;
+      display: flex;
+      justify-content: space-between;
+
+      .detail-image {
+        width: 528px;
+        height: 528px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+      }
+
+      .detail-info {
+        width: 602px;
+
+        .detail-info-items {
+          margin-bottom: 51px;
+
+          .detail-info-item {
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #E7F1E8;
+            display: flex;
+
+            &:first-child {
+              padding-top: 0;
+              margin-top: 0;
+              border-top: 0;
+            }
+
+            .detail-info-item-text {
+              margin-left: 22px;
+              width: 528px;
+
+              .detail-info-item-title {
+                font-weight: 500;
+                font-size: 20px;
+                color: $green-text-color;
+                margin-bottom: 15px;
+              }
+
+              .detail-info-item-description {
+                font-size: 16px;
+                line-height: 130%;
+                color: $gray-text-color;
+              }
+            }
+          }
+        }
+
+        .detail-info-param {
+          display: flex;
+          align-items: center;
+          margin-bottom: 12px;
+
+          &:last-child {
+            margin-bottom: 10px;
+          }
+
+          .detail-info-param-name {
+            font-weight: 500;
+            margin-right: 10px;
+          }
+        }
+
+        .detail-info-params {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .detail-info-params-count {
+            display: flex;
+            align-items: center;
+
+            span {
+              font-weight: 500;
+              font-size: 16px;
+              margin-right: 20px;
+            }
+          }
+
+          .detail-info-params-price {
+            font-weight: 700;
+            font-size: 40px;
+            color: #313131;
+          }
+        }
+
+        .detail-info-actions {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 22px;
+
+          .button {
+            width: 290px;
+
+            &.button-transparent {
+              width: 307px;
+
+              &.button-in-cart {
+                width: 290px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

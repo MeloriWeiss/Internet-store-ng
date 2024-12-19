@@ -1,0 +1,80 @@
+<div class="info">
+  <div class="container">
+    <div class="personal-title">
+      Личный кабинет
+    </div>
+    <div class="personal-pages-selector">
+      <div class="personal-page active">Личные данные</div>
+      <div class="personal-page" routerLink="/orders">Ваши заказы</div>
+    </div>
+    <div class="data-form" [formGroup]="userInfoForm">
+      <div class="data-form-block">
+        <div class="data-form-label">Личные данные</div>
+        <div class="data-form-label-additional">Введённые данные автоматические подставятся при оформлении заказа.</div>
+        <div class="data-form-inputs personal-data-inputs">
+          <input type="text" class="input" placeholder="Фамилия" formControlName="lastName"
+                 [ngStyle]="{'border-color': userInfoForm.get('lastName')?.invalid
+            && (userInfoForm.get('lastName')?.touched || userInfoForm.get('lastName')?.dirty) ? 'red' : ''}">
+          <input type="text" class="input" placeholder="Имя" formControlName="firstName"
+                 [ngStyle]="{'border-color': userInfoForm.get('firstName')?.invalid
+            && (userInfoForm.get('firstName')?.touched || userInfoForm.get('firstName')?.dirty) ? 'red' : ''}">
+          <input type="text" class="input" placeholder="Отчество" formControlName="fatherName"
+                 [ngStyle]="{'border-color': userInfoForm.get('fatherName')?.invalid
+            && (userInfoForm.get('fatherName')?.touched || userInfoForm.get('fatherName')?.dirty) ? 'red' : ''}">
+          <input type="text" class="input" placeholder="Телефон" formControlName="phone"
+                 [ngStyle]="{'border-color': userInfoForm.get('phone')?.invalid
+            && (userInfoForm.get('phone')?.touched || userInfoForm.get('phone')?.dirty) ? 'red' : ''}">
+          <input type="text" class="input" placeholder="E-mail" formControlName="email"
+                 [ngStyle]="{'border-color': userInfoForm.get('email')?.invalid
+            && (userInfoForm.get('email')?.touched || userInfoForm.get('email')?.dirty) ? 'red' : ''}">
+        </div>
+      </div>
+      <div class="data-form-block">
+        <div class="data-form-label">Адрес доставки</div>
+        <div class="data-form-inputs address-inputs">
+          <input type="text" class="input street" placeholder="Улица" formControlName="street"
+                 [ngStyle]="{'border-color': userInfoForm.get('street')?.invalid
+            && (userInfoForm.get('street')?.touched || userInfoForm.get('street')?.dirty) ? 'red' : ''}">
+          <input type="text" class="input house" placeholder="№ дома" formControlName="house"
+                 [ngStyle]="{'border-color': userInfoForm.get('house')?.invalid
+            && (userInfoForm.get('house')?.touched || userInfoForm.get('house')?.dirty) ? 'red' : ''}">
+          <input type="text" class="input entrance" placeholder="Подъезд" formControlName="entrance"
+                 [ngStyle]="{'border-color': userInfoForm.get('entrance')?.invalid
+            && (userInfoForm.get('entrance')?.touched || userInfoForm.get('entrance')?.dirty) ? 'red' : ''}">
+          <input type="text" class="input apartment" placeholder="№ квартиры" formControlName="apartment"
+                 [ngStyle]="{'border-color': userInfoForm.get('apartment')?.invalid
+            && (userInfoForm.get('apartment')?.touched || userInfoForm.get('apartment')?.dirty) ? 'red' : ''}">
+        </div>
+      </div>
+      <div class="data-form-block">
+        <div class="data-form-label">Предпочитаемый способ доставки</div>
+        <div class="data-form-types">
+          <div class="data-form-type-item active" [class.active]="deliveryType === deliveryTypes.delivery" (click)="changeDeliveryType(deliveryTypes.delivery)">Курьером</div>
+          <div class="data-form-type-item" [class.active]="deliveryType === deliveryTypes.self" (click)="changeDeliveryType(deliveryTypes.self)">Самовывоз</div>
+        </div>
+      </div>
+      <div class="data-form-block">
+        <div class="data-form-label">Предпочитаемый способ оплаты</div>
+        <div class="data-form-radio">
+          <div class="data-form-radio-block">
+            <input type="radio" id="card" value="{{paymentTypes.cardOnline}}" formControlName="paymentType">
+            <label for="card">Оплата банковской картой в интернет-магазине</label>
+          </div>
+          <div class="data-form-radio-block">
+            <input type="radio" id="cashless" value="{{paymentTypes.cardToCourier}}" formControlName="paymentType">
+            <label for="cashless">Безналичный расчет при получении</label>
+          </div>
+          <div class="data-form-radio-block">
+            <input type="radio" id="cash" value="{{paymentTypes.cashToCourier}}" formControlName="paymentType">
+            <label for="cash">Наличный расчет при получении</label>
+          </div>
+        </div>
+      </div>
+      <button class="button" [disabled]="!(userInfoForm.dirty && userInfoForm.valid) ? true : null"
+      (click)="updateUserInfo()">Сохранить</button>
+    </div>
+  </div>
+  <div class="page-image">
+    <img src="/assets/images/page/main.png" alt="Цветок">
+  </div>
+</div>

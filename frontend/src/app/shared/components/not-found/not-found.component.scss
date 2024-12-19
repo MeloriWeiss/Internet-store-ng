@@ -1,0 +1,20 @@
+.error-container {
+  min-height: 50vh;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  width: 800px;
+  text-align: left;
+  font-size: 60px;
+  color: gray;
+
+  .error-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    a {
+      width: 220px;
+    }
+  }
+}

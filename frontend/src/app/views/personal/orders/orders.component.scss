@@ -1,0 +1,92 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+@import "../../../../assets/styles/personal";
+
+.orders {
+  padding-top: 50px;
+  padding-bottom: 156px;
+
+  .container {
+    font-size: 16px;
+
+    .orders-title {
+      font-weight: 500;
+      color: $gray-text-color;
+      margin-bottom: 14px;
+    }
+
+    .orders-title-additional {
+      color: $gray-text-color;
+      margin-bottom: 67px;
+    }
+
+    .orders-list {
+      .orders-list-item {
+        border-bottom: 1px solid #E7F1E8;
+        padding-bottom: 46px;
+        margin-bottom: 47px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        &:last-child {
+          border-bottom: 0;
+          padding-bottom: 0;
+          margin-bottom: 0;
+        }
+
+        .orders-list-item-number {
+          font-size: 20px;
+          text-decoration-line: underline;
+          color: #111111;
+          width: 297px;
+          margin-right: 20px;
+        }
+
+        .orders-list-item-products {
+          width: 509px;
+          margin-right: 20px;
+          color: #ADADAD;
+
+          .orders-list-item-products-count {
+            margin-bottom: 12px;
+          }
+
+          .orders-list-item-products-list tr {
+            display: flex;
+            align-items: baseline;
+
+            td {
+              line-height: 130%;
+
+              &:first-child {
+                padding-left: 11px;
+                padding-right: 20px;
+                width: 211px;
+              }
+            }
+          }
+        }
+
+        .orders-list-item-status {
+          padding: 8px 24px;
+          text-align: center;
+          border: 1px solid #456F49;
+          border-radius: 50px;
+          box-sizing: border-box;
+          background-color: transparent;
+          color: #456F49;
+          min-width: 125px;
+        }
+
+        .orders-list-item-price {
+          width: 186px;
+          text-align: right;
+          font-weight: 600;
+          font-size: 22px;
+          color: $gray-text-color;
+        }
+      }
+    }
+  }
+}

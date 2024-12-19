@@ -1,0 +1,46 @@
+<div class="cart" *ngIf="cart">
+  <div class="container">
+    <div class="cart-title">Корзина</div>
+    <div class="list-empty" *ngIf="!cart || !cart.items.length">
+      <div class="list-empty-text">В корзине нет товаров</div>
+      <button class="button" routerLink="/catalog">В каталог</button>
+    </div>
+
+    <div class="cart-info" *ngIf="cart && cart.items.length > 0">
+      <div class="cart-products">
+        <div class="cart-product" *ngFor="let cartProduct of cart.items">
+          <div class="cart-product-image" style="background-image: url({{serverStaticPath + cartProduct.product.image}})"></div>
+          <div class="cart-product-name">{{ cartProduct.product.name }}</div>
+          <count-selector [count]="cartProduct.quantity" (onCountChange)="updateCount(cartProduct.product.id, $event)"></count-selector>
+          <div class="cart-product-price">{{ cartProduct.product.price }} BYN</div>
+          <div class="cart-product-remove" (click)="updateCount(cartProduct.product.id, 0)">
+            <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="0.935622" y1="1.50635" x2="12.9564" y2="13.5272" stroke="#A8ABA7" stroke-linecap="round"/>
+              <line x1="12.9238" y1="1.4864" x2="0.903013" y2="13.5072" stroke="#A8ABA7" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="cart-details">
+        <div class="cart-details-info">
+          <div class="cart-details-info-title">Ваш заказ</div>
+          <div class="cart-details-info-item first">
+            <div class="cart-details-info-item-text">Товаров:</div>
+            <div class="cart-details-info-item-data">{{ totalCount }}</div>
+          </div>
+          <div class="cart-details-info-item">
+            <div class="cart-details-info-item-text">Общая стоимость:</div>
+            <div class="cart-details-info-item-data">{{ totalAmount }} BYN</div>
+          </div>
+          <div class="cart-details-info-delivery">* без учета доставки</div>
+        </div>
+        <div class="cart-details-actions">
+          <button class="button button-transparent" routerLink="/catalog">Продолжить покупки</button>
+          <button class="button" routerLink="/order">Оформить заказ</button>
+        </div>
+      </div>
+    </div>
+
+    <products-carousel [isLight]="true" title="С этими товарами также покупают" [products]="extraProducts"></products-carousel>
+  </div>
+</div>

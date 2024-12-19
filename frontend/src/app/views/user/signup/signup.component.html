@@ -1,0 +1,46 @@
+<section class="signup" [formGroup]="signupForm" passwordRepeat>
+  <div class="container">
+    <div class="auth-form">
+      <div class="auth-title">
+        Регистрация на сайте
+      </div>
+      <div class="auth-inputs">
+        <div class="auth-input">
+          <input type="text" class="input"
+                 [ngStyle]="{'border-color': signupForm.get('email')?.invalid
+                 && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched) ? 'red' : ''}"
+                 placeholder="Электронная почта" formControlName="email">
+        </div>
+        <div class="auth-input">
+          <input type="password" class="input"
+                 [ngStyle]="{'border-color': signupForm.get('password')?.invalid
+                 && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched) ? 'red' : ''}"
+                 placeholder="Пароль" formControlName="password">
+        </div>
+        <div class="auth-input">
+          <input type="password" class="input"
+                 [ngStyle]="{'border-color': signupForm.get('passwordRepeat')?.invalid
+                 && (signupForm.get('passwordRepeat')?.dirty || signupForm.get('passwordRepeat')?.touched) ? 'red' : ''}"
+                 placeholder="Повторите пароль" formControlName="passwordRepeat">
+        </div>
+        <div class="auth-checkbox">
+          <input type="checkbox" id="agree" formControlName="agree">
+          <label for="agree">
+            Я принимаю <a href="#">условия пользовательского соглашения</a> и даю <a href="#">согласие на обработку
+            персональных
+            данных</a>.
+          </label>
+        </div>
+      </div>
+      <div class="auth-button">
+        <button class="button" [disabled]="signupForm.invalid ? true : null" (click)="signup()">Зарегистрироваться</button>
+      </div>
+      <div class="auth-link">
+        Уже есть аккаунт? <a routerLink="/login">Войдите</a>
+      </div>
+    </div>
+    <div class="page-image">
+      <img src="/assets/images/page/signup.png" alt="Растение">
+    </div>
+  </div>
+</section>

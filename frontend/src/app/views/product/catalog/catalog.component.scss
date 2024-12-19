@@ -1,0 +1,187 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.catalog {
+  padding-top: 100px;
+  padding-bottom: 110px;
+
+  .container {
+
+    .catalog-title {
+      @include head-lora-36;
+      color: $green-text-color;
+      margin-left: 317px;
+      margin-bottom: 33px;
+    }
+
+    .catalog-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-left: 317px;
+
+      .catalog-applied-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 15px;
+
+        .catalog-applied-filter {
+          border: 1px solid #E7F1E8;
+          border-radius: 50px;
+          font-size: 16px;
+          color: $gray-text-color;
+          padding: 8px 14px;
+          display: flex;
+          align-items: center;
+
+          a {
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            margin-left: 8px;
+          }
+        }
+      }
+
+      .catalog-sorting {
+        box-sizing: border-box;
+        position: relative;
+        font-size: 16px;
+        transition: all .3s ease;
+        cursor: pointer;
+        width: 148px;
+        min-width: 148px;
+
+        &.open {
+          width: 257px;
+          min-width: 257px;
+
+          .catalog-sorting-head {
+            color: #000;
+            background-color: #EBEBEB;
+            border-radius: 5px 5px 0 0;
+            padding-left: 23px;
+            padding-right: 23px;
+
+            svg {
+              transform: rotate(180deg);
+            }
+          }
+
+          .catalog-sorting-body {
+            display: block;
+          }
+        }
+
+        .catalog-sorting-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: $gray-text-color;
+          padding: 12px 0;
+          transition: all .3s ease;
+
+          svg {
+            transition: all .3s ease;
+          }
+        }
+
+        .catalog-sorting-body {
+          position: absolute;
+          width: 100%;
+          box-sizing: border-box;
+          z-index: 3;
+          display: none;
+          padding: 12px 23px;
+          background-color: #F5F5F5;
+          border-radius: 0 0 5px 5px;
+          color: #8E8E8E;
+
+          .catalog-sorting-item {
+            margin-bottom: 14px;
+            cursor: pointer;
+            overflow: hidden;
+            white-space: nowrap;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &.active {
+              color: #313131;
+            };
+          }
+        }
+      }
+    }
+
+    .catalog-layout {
+      margin-top: 30px;
+      display: flex;
+
+      .catalog-filters {
+        width: 257px;
+        min-width: 257px;
+        margin-right: 58px;
+      }
+
+      .catalog-products {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 26px;
+        grid-row-gap: 30px;
+      }
+
+      .not-found-products {
+        font-size: 30px;
+        color: gray;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+      }
+    }
+
+    .pagination {
+      margin-top: 79px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .pagination-arrow {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.disabled {
+          opacity: 0.4;
+        }
+      }
+
+      .pagination-page-numbers {
+        margin-left: 30px;
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+
+        .pagination-page-number {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
+          width: 60px;
+          height: 60px;
+          column-gap: 15px;
+          cursor: pointer;
+          font-size: 20px;
+          color: $gray-text-color;
+
+          &.active {
+            border-radius: 50%;
+            background-color: #B6D5B9;
+          }
+        }
+      }
+    }
+  }
+}

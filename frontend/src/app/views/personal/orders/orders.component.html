@@ -1,0 +1,33 @@
+<div class="orders">
+  <div class="container">
+    <div class="personal-title">
+      Личный кабинет
+    </div>
+    <div class="personal-pages-selector">
+      <div class="personal-page" routerLink="/profile">Личные данные</div>
+      <div class="personal-page active" routerLink="/orders">Ваши заказы</div>
+    </div>
+    <div class="orders-title">Ваши заказы</div>
+    <div class="orders-title-additional">Здесь отображается история ваших заказов.</div>
+    <div class="list-empty" *ngIf="!orders || !orders.length">
+      <div class="list-empty-text">История заказов пуста</div>
+      <button class="button" routerLink="/catalog">Приступить к покупкам</button>
+    </div>
+    <div class="orders-list" *ngIf="orders && orders.length">
+        <div class="orders-list-item" *ngFor="let order of orders; let i = index">
+          <div class="orders-list-item-number">Заказ №{{i + 1}}</div>
+          <div class="orders-list-item-products" *ngIf="order.items && order.items.length">
+            <div class="orders-list-item-products-count">Кол-во товаров: {{order.items.length}}</div>
+            <table class="orders-list-item-products-list">
+              <tr *ngFor="let item of order.items">
+                <td>&#183; {{item.name}}</td>
+                <td>{{item.quantity}} шт.</td>
+              </tr>
+            </table>
+          </div>
+          <div class="orders-list-item-status" style="border-color: {{order.statusColor}}; color: {{order.statusColor}}">{{order.statusRus}}</div>
+          <div class="orders-list-item-price">{{order.totalAmount}} BYN</div>
+        </div>
+    </div>
+  </div>
+</div>

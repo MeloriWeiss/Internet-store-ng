@@ -1,0 +1,26 @@
+@import "../../../../assets/styles/mixins";
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+
+  .carousel-title {
+    @include head-lora-32;
+  }
+
+  .carousel-arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      cursor: pointer;
+
+      &:first-child {
+        margin-right: 30px;
+      }
+    }
+  }
+}

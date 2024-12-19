@@ -1,0 +1,14 @@
+<div class="favourite">
+  <div class="container">
+    <div class="favourite-title">
+      Избранное
+    </div>
+    <div class="non-favourite-products" *ngIf="!products.length">
+      <span>Продукты отсутствуют</span>
+      <button class="button" routerLink="/catalog">Найти продукты</button>
+    </div>
+    <div class="favourite-products" *ngIf="products.length">
+      <favourite-product *ngFor="let product of products" [product]="product" (removedProductId)="removeFromFavourites($event)"></favourite-product>
+    </div>
+  </div>
+</div>
