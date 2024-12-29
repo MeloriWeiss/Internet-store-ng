@@ -3,9 +3,7 @@ import {ProductType} from "../../../../types/product.type";
 import {environment} from "../../../../environments/environment";
 import {CartService} from "../../services/cart.service";
 import {CartType} from "../../../../types/cart.type";
-import {tap} from "rxjs";
 import {DefaultResponseType} from "../../../../types/default-response.type";
-import {FavouriteType} from "../../../../types/favourite.type";
 import {FavouriteService} from "../../services/favourite.service";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../core/auth/auth.service";
@@ -76,7 +74,7 @@ export class ProductCardComponent implements OnInit {
 
   navigate() {
     if (this.isLight) {
-      this.router.navigate(['/product/' + this.product.url]).then();
+      this.router.navigate(['/product/' + this.product.url]);
     }
   }
 }

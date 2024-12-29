@@ -61,7 +61,7 @@ export class InfoComponent implements OnInit {
         email: this.userInfoForm.value.email ? this.userInfoForm.value.email : '',
         deliveryType: this.deliveryType,
         paymentType: this.userInfoForm.value.paymentType ? this.userInfoForm.value.paymentType : PaymentType.cashToCourier
-      }
+      };
 
       if (this.userInfoForm.value.firstName) {
         paramsObject.firstName = this.userInfoForm.value.firstName;
@@ -106,7 +106,7 @@ export class InfoComponent implements OnInit {
               this._snackBar.open('Ошибка при сохранении');
             }
           }
-        })
+        });
     } else {
       this.userInfoForm.markAllAsTouched();
       this._snackBar.open('Заполните поле E-mail');
